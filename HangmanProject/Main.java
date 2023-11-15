@@ -18,6 +18,7 @@ public class Main {
             
             game.startNewGame(wordList, difficulty);
             
+            //While the game isn't over gets the game display
             while (!game.isGameOver()) {
                 System.out.println(game.getHangmanDrawing());
                 System.out.println("Current word: " + game.getCurrentGuessState());
@@ -35,9 +36,15 @@ public class Main {
                 }
             }
 
-            
+            //if statement for which case the game ended with and displays result
             if (game.isGameWon()) {
+            	System.out.println("");        
                 System.out.println("Congratulations, you won!");
+                System.out.println(game.getHangmanDrawing());
+                System.out.println("Current word: " + game.getCurrentGuessState());
+                System.out.println("Wrong guesses: " + game.getIncorrectGuesses());
+                System.out.print("Enter your guess: ");
+                System.out.println("");
             } else {
                 System.out.println("Game over! The correct word was: " + game.getCurrentWord().getWord());
             }
@@ -48,13 +55,14 @@ public class Main {
 
             System.out.print("Do you want to play again? (y/n): ");
             String playAgain = scanner.next();
+            System.out.println("_________________________________________");
             if (!playAgain.equalsIgnoreCase("y")) {
                 break;
             }
         }
         scanner.close();
     }
-
+//This contains all the possible words that you could have to guess can add more or remove some
     private static void populateWordList(WordList wordList) {
         // Add words to the wordList
     	wordList.addWord("Cat", 1);

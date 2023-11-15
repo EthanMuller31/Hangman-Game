@@ -5,22 +5,25 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class HangmanGame {
+	//variables etc.
     private Word currentWord;
     private StringBuilder currentGuessState;
     private int incorrectGuesses;
     private int maxIncorrectGuesses;
     private boolean isGameWon;
     private List<Character> incorrectGuessesList;
+    
+    //wont allow duplicates in a set which is perfect for this case
     private Set<Character> guessedCharacters;
 
-
+//Initializes here
     public HangmanGame(int maxIncorrectGuesses) {
         this.maxIncorrectGuesses = maxIncorrectGuesses;
         this.incorrectGuessesList = new ArrayList<>();
         this.guessedCharacters = new HashSet<>();
     }
 
-
+//Setting up game and secret word also hides the word with '_'
     public void startNewGame(WordList wordList, int difficulty) {
         this.currentWord = wordList.getWordByDifficulty(difficulty);
         this.currentGuessState = new StringBuilder("_".repeat(currentWord.getWord().length()));
@@ -31,6 +34,7 @@ public class HangmanGame {
 
     }
 
+//Checks the guess also handles case sensitivity, not allowing number guesses ex('3'), and not allowing repeated guesses
     public void makeGuess(char guess) {
         guess = Character.toLowerCase(guess); // Convert guess to lowercase
 
@@ -62,15 +66,15 @@ public class HangmanGame {
         isGameWon = currentGuessState.toString().equalsIgnoreCase(currentWord.getWord());
     }
 
-
+//boolean to check if game is over
     public boolean isGameOver() {
         return isGameWon || incorrectGuesses >= maxIncorrectGuesses;
     }
-
+//getter for currentGuessState
     public String getCurrentGuessState() {
         return currentGuessState.toString();
     }
-
+//Switch statements containing the ASCII art for the game display. Uses incorrectGuesses
     public String getHangmanDrawing() {
         switch (incorrectGuesses) {
             case 0:
@@ -125,15 +129,19 @@ public class HangmanGame {
                 return "Invalid state";
         }
     }
-    
+  
+//Getter for currentWord
     public Word getCurrentWord() {
         return currentWord;
     }
-    
+
+//Boolean for win situations
     public boolean isGameWon() {
         return isGameWon;
     }
-    
+  
+//Uses stream to get the String value of previous incorrect guesses and collects them into a list to be displayed
+//Will also use to not allow user to guess the same thing twice. being able to guess twice brought up issues
     public String getIncorrectGuesses() {
         return incorrectGuessesList.stream()
                                    .map(String::valueOf)
