@@ -65,21 +65,21 @@ public class Main {
 //This contains all the possible words that you could have to guess can add more or remove some
     private static void populateWordList(WordList wordList) {
         // Add words to the wordList
-    	wordList.addWord("Cat", 1);
-		wordList.addWord("Ocean", 2);
-		wordList.addWord("Juxtapose", 3);
-		wordList.addWord("Sun", 1);
-		wordList.addWord("Guitar", 2);
-		wordList.addWord("Quizzical", 3);
-		wordList.addWord("Ball", 1);
-		wordList.addWord("Castle", 2);
-		wordList.addWord("Zephyr", 3);
-		wordList.addWord("Tree", 1);
-		wordList.addWord("Puzzle", 2);
-		wordList.addWord("Hyphenate", 3);
-		wordList.addWord("Book", 1);
-		wordList.addWord("Jungle", 2);
-		wordList.addWord("Gossamer", 3);
+    	wordList.addWord("CAT", 1);
+		wordList.addWord("OCEAN", 2);
+		wordList.addWord("JUXTAPOSE", 3);
+		wordList.addWord("SUN", 1);
+		wordList.addWord("GUITAR", 2);
+		wordList.addWord("QUIZZICAL", 3);
+		wordList.addWord("BALL", 1);
+		wordList.addWord("CASTLE", 2);
+		wordList.addWord("ZEPHYR", 3);
+		wordList.addWord("TREE", 1);
+		wordList.addWord("PUZZLE", 2);
+		wordList.addWord("HYPHENATE", 3);
+		wordList.addWord("BOOK", 1);
+		wordList.addWord("JUNGLE", 2);
+		wordList.addWord("GOSSAMER", 3);
         // ... add more words
     }
 }

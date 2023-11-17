@@ -26,7 +26,7 @@ public class HangmanGame {
 //Setting up game and secret word also hides the word with '_'
     public void startNewGame(WordList wordList, int difficulty) {
         this.currentWord = wordList.getWordByDifficulty(difficulty);
-        this.currentGuessState = new StringBuilder("_".repeat(currentWord.getWord().length()));
+        this.currentGuessState = new StringBuilder("-".repeat(currentWord.getWord().length()));
         this.incorrectGuesses = 0;
         this.isGameWon = false;
         this.incorrectGuessesList.clear();
@@ -34,9 +34,9 @@ public class HangmanGame {
 
     }
 
-//Checks the guess also handles case sensitivity, not allowing number guesses ex('3'), and not allowing repeated guesses
+//Checks the guess also handles case sensitivity, not allowing number guesses Example:('3'), and not allowing repeated guesses
     public void makeGuess(char guess) {
-        guess = Character.toLowerCase(guess); // Convert guess to lowercase
+        guess = Character.toLowerCase(guess); // Convert guess to lower case
 
         // Check if the guess has already been made
         if (guessedCharacters.contains(guess)) {
@@ -45,7 +45,7 @@ public class HangmanGame {
         }
         guessedCharacters.add(guess);
 
-        String word = currentWord.getWord().toLowerCase(); // Convert word to lowercase
+        String word = currentWord.getWord().toLowerCase(); // Convert word to lower case
         boolean isCorrect = false;
 
         // Check each character of the word
